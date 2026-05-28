@@ -28,12 +28,12 @@ def inserir_aluno(nome, matricula, nota1, nota2, nota_final):
 # essa função conecta no db, executa select, busca os resultados e retornas os dados.
 def lista_alunos(): 
 
-    conexao = conectar()
-    cursor = conexao.cursor()
+    conexao = conectar() # faz a conexão com banco
+    cursor = conexao.cursor() # trás a conexão 
     comando = "select * FROM alunos" # busca dados. (*) significa que ele vai buscar todas as colunas
-    cursor.execute(comando)
-    alunos = cursor.fetchall()
+    cursor.execute(comando) # executa sql.
+    alunos = cursor.fetchall() # cursor.fetchall capturar os dados do var alunos
 
-    cursor.close()
-    conexao.close()
+    cursor.close() # fecha os recurso.
+    conexao.close() # fecha os recurso.
     return alunos
