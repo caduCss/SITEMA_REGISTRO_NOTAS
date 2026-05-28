@@ -1,4 +1,11 @@
 # arquivo para inciar sistema 
-from interface.tela_principal import iniciar_sistema
+from database.crud import inserir_aluno
 
-iniciar_sistema()
+
+inserir_aluno(
+    "Carlos Eduardo",
+    "2025001",
+    8.5,
+    7.0,
+    7.75
+)

@@ -1,2 +1,2 @@
 psycopg2
-Pillow - mais tarde
+Pillow
