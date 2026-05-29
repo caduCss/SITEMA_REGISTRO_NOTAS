@@ -25,15 +25,81 @@ def inserir_aluno(nome, matricula, nota1, nota2, nota_final):
     cursor.close() # fecha os recurso.
     conexao.close() # fecha os recurso.
 
-# essa função conecta no db, executa select, busca os resultados e retornas os dados.
-def lista_alunos(): 
+# Função responsável por buscar todos os alunos no banco
+def listar_alunos():
 
-    conexao = conectar() # faz a conexão com banco
-    cursor = conexao.cursor() # trás a conexão 
-    comando = "select * FROM alunos" # busca dados. (*) significa que ele vai buscar todas as colunas
-    cursor.execute(comando) # executa sql.
-    alunos = cursor.fetchall() # cursor.fetchall capturar os dados do var alunos
+    # Abre conexão com PostgreSQL
+    conexao = conectar()
 
-    cursor.close() # fecha os recurso.
-    conexao.close() # fecha os recurso.
+    # Cria cursor responsável por executar SQL
+    cursor = conexao.cursor()
+
+    # Comando SQL para buscar todos os alunos
+    comando = "SELECT * FROM alunos"
+
+    # Executa o comando SQL
+    cursor.execute(comando)
+
+    # Busca todos os registros retornados pelo SELECT
+    alunos = cursor.fetchall()
+
+    # Fecha cursor
+    cursor.close()
+
+    # Fecha conexão
+    conexao.close()
+
+    # Retorna os dados para quem chamou a função
     return alunos
+
+# Função responsável por atualizar dados de um aluno
+def atualizar_aluno(nome, matricula, nota1, nota2, nota_final):
+
+    # Abre conexão com PostgreSQL
+    conexao = conectar()
+
+    # Cria cursor para executar SQL
+    cursor = conexao.cursor()
+
+    # Comando SQL de atualização
+    comando = """
+    UPDATE alunos
+    SET nome = %s,
+        nota1 = %s,
+        nota2 = %s,
+        nota_final = %s
+    WHERE matricula = %s
+    """
+
+    # Executa o UPDATE
+    cursor.execute(comando, (nome, nota1, nota2, nota_final, matricula))
+
+    # Confirma alteração no banco
+    conexao.commit()
+
+    print("Aluno atualizado com sucesso!")
+
+    # Fecha recursos
+    cursor.close()
+    conexao.close()
+
+    # Função responsável por remover um aluno do banco
+def deletar_aluno(matricula):
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    comando = """
+    DELETE FROM alunos
+    WHERE matricula = %s
+    """
+    print("Matrícula recebida:", matricula)
+    
+    cursor.execute(comando, (matricula,))
+
+    conexao.commit()
+
+    print("Aluno removido com sucesso!")
+
+    cursor.close()
+    conexao.close()

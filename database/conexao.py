@@ -1,7 +1,6 @@
 import psycopg2
 
-def conectar():
-    
+def conectar():   
     try: 
         # Tentando estabelecer a conexão através do método connect
         conexao = psycopg2.connect(
@@ -10,12 +9,9 @@ def conectar():
             user="postgres",                        # Seu usuário do PostgreSQL (padrão é 'postgres')
             password="20206",                       # A senha que você definiu na instalação do PostgreSQL
             port="5432"                             # Porta padrão do PostgreSQL
-        )
-        
-        print("Conexão realizada com sucesso!")
-        
-        return conexao
-    
+        )        
+        print("Conexão realizada com sucesso!")      
+        return conexao    
     except Exception as erro:
         print("Erro ao conectar:", erro)
 
