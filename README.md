@@ -6,10 +6,10 @@ Um sistema de gerenciamento escolar desktop completo, desenvolvido em **Python**
 
 ## 🛠️ Stack Tecnológica
 
-* **Linguagem:** Python                           # Linguagem base do projeto
+* **Linguagem:** Python                             # Linguagem base do projeto
 * **Interface Gráfica:** Tkinter (e submódulo ttk)  # Responsável pelas janelas, botões e tabelas
-* **Banco de Dados:** PostgreSQL                   # Banco de dados relacional robusto
-* **Driver de Conexão:** psycopg2-binary           # Ponte de comunicação entre Python e PostgreSQL
+* **Banco de Dados:** PostgreSQL                    # Banco de dados relacional robusto
+* **Driver de Conexão:** psycopg2-binary            # Ponte de comunicação entre Python e PostgreSQL
 
 ---
 

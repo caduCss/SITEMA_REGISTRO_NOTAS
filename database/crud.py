@@ -1,82 +1,119 @@
-from database.conexao import conectar                  # Importa a função conectar exatamente do seu arquivo conexao.py
-# -------------------------------
-# FUNÇÃO: INSERIR NOVO ALUNO (C)
-# -------------------------------
-def inserir_aluno(nome, matricula, nota1, nota2, nota_final):
+from database.conexao import conectar  # Importa a função de conexão com o PostgreSQL
 
-    conexao = conectar()                                # Abre a conexão usando a sua função do arquivo conexao.py
-    cursor = conexao.cursor()                           # Cria o objeto de cursor para interagir com o banco de dados
+def inserir_aluno(nome, matricula, simulado1, simulado2, av, avs, nota_final):
+    """
+    Insere um novo aluno no banco de dados. 
+    Aceita campos de notas vazios (None), exigindo obrigatoriamente apenas nome e matrícula.
+    """
+    conexao = conectar()
+    cursor = conexao.cursor()
 
-    comando = """ 
-    INSERT INTO alunos (nome, matricula, nota1, nota2, nota_final)
-    VALUES (%s, %s, %s, %s, %s)
-    """                                                 # SQL de inserção utilizando placeholders (%s) de segurança
+    comando = """
+        INSERT INTO alunos (nome, matricula, simulado1, simulado2, av, avs, nota_final)
+        VALUES (%s, %s, %s, %s, %s, %s, %s);
+    """
+    
+    # Se os campos na interface vierem vazios (''), o Python os trata e envia como None (NULL no banco)
+    dados = (
+        nome, 
+        matricula, 
+        None if str(simulado1).strip() == "" else simulado1,
+        None if str(simulado2).strip() == "" else simulado2,
+        None if str(av).strip() == "" else av,
+        None if str(avs).strip() == "" else avs,
+        None if str(nota_final).strip() == "" else nota_final
+    )
 
-    cursor.execute(comando, (nome, matricula, nota1, nota2, nota_final))  # Injeta os valores reais e executa a query
-    conexao.commit()                                    # Confirma permanentemente a alteração no banco de dados
+    try:
+        cursor.execute(comando, dados)
+        conexao.commit()
+    except Exception as erro:
+        print(f"Erro ao inserir aluno: {erro}")
+        conexao.rollback()
+    finally:
+        cursor.close()
+        conexao.close()
 
-    print("Aluno cadastrado com sucesso!")              # Print informativo no terminal do console
-    cursor.close()                                      # Fecha o cursor liberando o recurso manual
-    conexao.close()                                     # Fecha a conexão liberando o recurso manual
 
-# -------------------------------
-# FUNÇÃO: LISTAR TODOS OS ALUNOS (R)
-# -------------------------------
 def listar_alunos():
+    """
+    Busca todos os alunos cadastrados no banco de dados, ordenando-os pelo ID.
+    Retorna uma lista de tuplas com os dados de cada aluno.
+    """
+    conexao = conectar()
+    cursor = conexao.cursor()
 
-    conexao = conectar()                                # Abre a conexão com o banco de dados PostgreSQL
-    cursor = conexao.cursor()                           # Cria o cursor responsável por executar o comando SQL
+    comando = "SELECT id, nome, matricula, simulado1, simulado2, av, avs, nota_final FROM alunos ORDER BY id;"
+    alunos = []
 
-    comando = "SELECT * FROM alunos"                    # Comando SQL para buscar todos os alunos da tabela
+    try:
+        cursor.execute(comando)
+        alunos = cursor.fetchall()  # Captura todos os registros retornados pelo SELECT
+    except Exception as erro:
+        print(f"Erro ao listar alunos: {erro}")
+    finally:
+        cursor.close()
+        conexao.close()
+        
+    return alunos
 
-    cursor.execute(comando)                             # Executa a busca direto no banco de dados
-    alunos = cursor.fetchall()                          # Busca e armazena todos os registros retornados pelo SELECT
 
-    cursor.close()                                      # Fecha o cursor manualmente
-    conexao.close()                                     # Fecha a conexão manualmente
-    return alunos                                       # Retorna os dados obtidos para quem chamou a função
-
-# -------------------------------
-# FUNÇÃO: ATUALIZAR DADOS (U)
-# -------------------------------
-def atualizar_aluno(nome, matricula, nota1, nota2, nota_final):
-
-    conexao = conectar()                                # Abre a conexão ativa com o servidor do PostgreSQL
-    cursor = conexao.cursor()                           # Cria o cursor para a execução da query de edição
-
-    comando = """
-    UPDATE alunos
-    SET nome = %s,
-        nota1 = %s,
-        nota2 = %s,
-        nota_final = %s
-    WHERE matricula = %s
-    """                                                 # Comando SQL de atualização baseado na chave da matrícula
-
-    cursor.execute(comando, (nome, nota1, nota2, nota_final, matricula))  # Executa o UPDATE mapeando as variáveis nos %s
-    conexao.commit()                                    # Confirma permanentemente a alteração efetuada no banco
-
-    print("Aluno updated com sucesso!")                 # Imprime aviso de sucesso interno no terminal
-    cursor.close()                                      # Libera o objeto do cursor do sistema
-    conexao.close()                                     # Libera o objeto da conexão do sistema
-
-# -------------------------------
-# FUNÇÃO: DELETAR REGISTRO (D)
-# -------------------------------
 def deletar_aluno(matricula):
+    """
+    Remove um aluno do banco de dados utilizando a matrícula como chave de busca segura.
+    """
+    conexao = conectar()
+    cursor = conexao.cursor()
 
-    conexao = conectar()                                # Inicializa a comunicação com o banco de dados
-    cursor = conexao.cursor()                           # Instancia o cursor para rodar a remoção do registro
+    comando = "DELETE FROM alunos WHERE matricula = %s;"
 
+    try:
+        cursor.execute(comando, (matricula,))
+        conexao.commit()
+    except Exception as erro:
+        print(f"Erro ao deletar aluno: {erro}")
+        conexao.rollback()
+    finally:
+        cursor.close()
+        conexao.close()
+
+
+def atualizar_aluno(nome, matricula, simulado1, simulado2, av, avs, nota_final):
+    """
+    Atualiza as notas e o nome de um aluno utilizando a matrícula como chave.
+    Garante milimetricamente que cada nota vá para a coluna correta.
+    """
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    # Mapeamento cirúrgico de cada campo para seu respectivo %s
     comando = """
-    DELETE FROM alunos
-    WHERE matricula = %s
-    """                                                 # Comando SQL para remover o aluno através da matrícula
-    print("Matrícula recebida:", matricula)             # Exibe a matrícula capturada no terminal para controle
+        UPDATE alunos 
+        SET nome = %s, 
+            simulado1 = %s, 
+            simulado2 = %s, 
+            av = %s, 
+            avs = %s, 
+            nota_final = %s
+        WHERE matricula = %s;
+    """
 
-    cursor.execute(comando, (matricula,))               # Executa a exclusão passando o argumento dentro da tupla
-    conexao.commit()                                    # Confirma e salva a exclusão permanentemente no banco
+    # Tratamento de segurança para notas vazias no UPDATE
+    s1_v = None if str(simulado1).strip() == "" else simulado1
+    s2_v = None if str(simulado2).strip() == "" else simulado2
+    av_v = None if str(av).strip() == "" else av
+    avs_v = None if str(avs).strip() == "" else avs
+    nf_v = None if str(nota_final).strip() == "" else nota_final
 
-    print("Aluno removido com sucesso!")                # Notifica o encerramento da deleção no terminal
-    cursor.close()                                      # Fecha o cursor limpando a memória alocada
-    conexao.close()                                     # Fecha a conexão com o banco de dados com segurança
+    # A ordem desta tupla segue exatamente a ordem dos %s no comando SQL acima
+    dados = (nome, s1_v, s2_v, av_v, avs_v, nf_v, matricula)
+
+    try:
+        cursor.execute(comando, dados)
+        conexao.commit()
+    except Exception as erro:
+        print(f"Erro ao atualizar aluno: {erro}")
+        conexao.rollback()
+    finally:
+        cursor.close()
+        conexao.close()
