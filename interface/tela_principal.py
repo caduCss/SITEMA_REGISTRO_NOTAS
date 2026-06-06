@@ -235,12 +235,12 @@ def iniciar_sistema():                                 # Ponto de partida para a
     entry_matricula = tk.Entry(janela, width=40)
     entry_matricula.pack(pady=3)                       # Caixa para digitar a matrícula do estudante
 
-    label_simulado1 = tk.Label(janela, text="Simulado 1 (Max 1.0):") #(Max 1.0)  a nota maxima.
+    label_simulado1 = tk.Label(janela, text="Simulado 1:") #(Max 1.0)  a nota maxima.
     label_simulado1.pack()                             # Texto indicativo do teto da primeira nota curta
     entry_simulado1 = tk.Entry(janela, width=20)
     entry_simulado1.pack(pady=3)                       # Caixa de entrada para a nota do primeiro simulado
 
-    label_simulado2 = tk.Label(janela, text="Simulado 2 (Max 1.0):") #(Max 1.0) nota maxima.
+    label_simulado2 = tk.Label(janela, text="Simulado 2") #(Max 1.0) nota maxima.
     label_simulado2.pack()                             # Texto explicativo para o segundo simulado do bimestre
     entry_simulado2 = tk.Entry(janela, width=20)
     entry_simulado2.pack(pady=3)                       # Caixa de entrada para a nota do segundo simulado
