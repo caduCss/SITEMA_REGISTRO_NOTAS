@@ -1,18 +1,35 @@
-import psycopg2
+import sqlite3
 
-def conectar():   
-    try: 
-        # Tentando estabelecer a conexão através do método connect
-        conexao = psycopg2.connect(
-            host="localhost",                       # Endereço do servidor (geralmente localhost se estiver na sua máquina)
-            database="Sistema_Registro_Notas",      # Nome do banco de dados que você criou
-            user="postgres",                        # Seu usuário do PostgreSQL (padrão é 'postgres')
-            password="20206",                       # A senha que você definiu na instalação do PostgreSQL
-            port="5432"                             # Porta padrão do PostgreSQL
-        )        
-        print("Conexão realizada com sucesso!")      
-        return conexao    
-    except Exception as erro:
-        print("Erro ao conectar:", erro)
+# Define o caminho do banco de dados
+CAMINHO_BANCO = "database/sistema_notas.db"
 
 
+def conectar():
+    conexao = sqlite3.connect(CAMINHO_BANCO)
+    return conexao
+
+
+def criar_tabela():
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute("DROP TABLE IF EXISTS alunos")
+
+    cursor.execute("""
+        CREATE TABLE alunos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL,
+            matricula TEXT UNIQUE NOT NULL,
+            simulado1 NUMERIC,
+            simulado2 NUMERIC,
+            av NUMERIC,
+            avs NUMERIC,
+            nota_final NUMERIC
+        )
+    """)
+
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    print("Tabela de alunos recriada com sucesso!")
