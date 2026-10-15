@@ -1,0 +1,199 @@
+﻿Diagnose log at 2026-10-15T18:44:48Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.7.3+5fa7116896c82164996a609accd1c5ad90fe730a
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 26200)
+Reading environment variables... OK
+ Variables:
+SESSIONNAME=Console
+ProgramFiles(x86)=C:\Program Files (x86)
+MSYSTEM=MINGW64
+ProgramW6432=C:\Program Files
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+TMP=C:\Users\carlo\AppData\Local\Temp
+PROCESSOR_ARCHITECTURE=AMD64
+VSCODE_GIT_ASKPASS_MAIN=c:\Users\carlo\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\70789581cae28aa7\askpass-main.js
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+COMPUTERNAME=DESKTOP-2UAKGO9
+CLAUDE_CODE_SSE_PORT=17314
+USERPROFILE=C:\Users\carlo
+VSCODE_GIT_IPC_HANDLE=\\.\pipe\vscode-git-ec07e26fb0-sock
+PROCESSOR_REVISION=5000
+EFC_19044_2283032206=1
+TEMP=C:\Users\carlo\AppData\Local\Temp
+FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer
+FPS_BROWSER_USER_PROFILE_STRING=Default
+LOGONSERVER=\\DESKTOP-2UAKGO9
+TERM=xterm-256color
+PYDEVD_DISABLE_FILE_VALIDATION=1
+USERNAME=carlo
+SystemRoot=C:\WINDOWS
+VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=c:\Users\carlo\.vscode\extensions\ms-python.debugpy-2026.6.0-win32-x64\.noConfigDebugAdapterEndpoints\endpoint-f4c1b2a109aa4ec6.txt
+CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_14084_PLLFSIKRIDJAVXFY
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+PLINK_PROTOCOL=ssh
+BESIEGE_UNITY_ASSEMBLIES=C:/Program Files (x86)/Steam/steamapps/common/Besiege/Besiege_Data\Managed/
+EFC_19044_1592913036=1
+OneDrive=C:\Users\carlo\OneDrive
+USERDOMAIN_ROAMINGPROFILE=DESKTOP-2UAKGO9
+EFC_19044_3789132940=1
+CommonProgramFiles=C:\Program Files\Common Files
+VSCODE_INJECTION=1
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+__COMPAT_LAYER=DetectorsAppHealth
+ProgramData=C:\ProgramData
+LANG=pt_BR.UTF-8
+GIT_ASKPASS=c:\Users\carlo\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\70789581cae28aa7\askpass.sh
+HOMEPATH=\Users\carlo
+EFC_19044_4126798990=1
+PYTHONSTARTUP=c:\Users\carlo\AppData\Roaming\Code\User\workspaceStorage\e86cb159204d275da6f77ec961efd2bb\ms-python.python\pythonrc.py
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+BESIEGE_GAME_ASSEMBLIES=C:/Program Files (x86)/Steam/steamapps/common/Besiege/Besiege_Data\Managed/
+ALLUSERSPROFILE=C:\ProgramData
+CommonProgramW6432=C:\Program Files\Common Files
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+windir=C:\WINDOWS
+GIT_TRACE2_PARENT_SID=435c4fb3-8d89-456f-bd1d-c2203d8dba69
+SystemDrive=C:
+NUMBER_OF_PROCESSORS=12
+OS=Windows_NT
+ProgramFiles=C:\Program Files
+ComSpec=C:\WINDOWS\system32\cmd.exe
+HOME=C:\Users\carlo
+PSModulePath=C:\Users\carlo\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\windowsapps\microsoft.powershell_7.6.7.0_x64__8wekyb3d8bbwe\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+TMPDIR=C:\Users\carlo\AppData\Local\Temp
+APPDATA=C:\Users\carlo\AppData\Roaming
+USERDOMAIN=DESKTOP-2UAKGO9
+PROCESSOR_LEVEL=25
+LOCALAPPDATA=C:\Users\carlo\AppData\Local
+EFC_19044_1262719628=1
+VSCODE_GIT_ASKPASS_NODE=C:\Users\carlo\AppData\Local\Programs\Microsoft VS Code\Code.exe
+BUNDLED_DEBUGPY_PATH=c:\Users\carlo\.vscode\extensions\ms-python.debugpy-2026.6.0-win32-x64\bundled\libs\debugpy
+TERM_PROGRAM_VERSION=1.141.2
+Path=C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\carlo\bin;C:\Users\carlo\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShell_8wekyb3d8bbwe;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Users\carlo\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\carlo\AppData\Local\Programs\Python\Python314\;C:\Users\carlo\AppData\Local\Programs\Python\Launcher\;C:\Users\carlo\AppData\Local\Microsoft\WindowsApps;C:\Users\carlo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\carlo\AppData\Local\Programs\Ollama;C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Users\carlo\.dotnet\tools;c:\Users\carlo\.vscode\extensions\ms-python.debugpy-2026.6.0-win32-x64\bundled\scripts\noConfigScripts
+COLORTERM=truecolor
+PUBLIC=C:\Users\Public
+TERM_PROGRAM=vscode
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\carlo\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\carlo\AppData\Local\Temp\7b274dbda40c1bffd1b0ef43'... OK
+Reading from temporary file 'C:\Users\carlo\AppData\Local\Temp\7b274dbda40c1bffd1b0ef43'... OK
+Deleting temporary file 'C:\Users\carlo\AppData\Local\Temp\7b274dbda40c1bffd1b0ef43'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\carlo
+UserDataDirectoryPath: C:\Users\carlo\.gcm
+GetCurrentDirectory(): C:\Users\carlo\Documents\Progamação\Projetos faculdade\Sistema_Registro_Notas
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:62237/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.54.0.windows.1'
+Locating current repository...Git repository at 'C:/Users/carlo/Documents/Progamação/Projetos faculdade/Sistema_Registro_Notas/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/carlo/.gitconfig	gui.recentrepo=C:/Users/carlo/Desktop/arquivos/ProjetosPY
+file:C:/Users/carlo/.gitconfig	user.email=carloseduardo.costa2206@gmail.com
+file:C:/Users/carlo/.gitconfig	user.name=caduCss
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/caduCss/Crud_PYTHON.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\carlo\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\carlo\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
